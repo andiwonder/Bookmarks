@@ -14,7 +14,6 @@ public class BookmarksController{
     @Autowired
     private BookmarkRepository bookmarkRepository;
 
-    @CrossOrigin
     @GetMapping("/bookmarks")
     public Iterable<Bookmark> findAllBookmarks() {
         return bookmarkRepository.findAll();

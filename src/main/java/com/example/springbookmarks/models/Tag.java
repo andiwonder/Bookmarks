@@ -1,5 +1,6 @@
 package com.example.springbookmarks.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import javax.persistence.*;
 
@@ -15,12 +16,9 @@ public class Tag {
     @Column(name = "TYPE")
     private String type;
 
-    @ManyToOne
-    @JoinColumn(name = "bookmark_id")
-    private Bookmark bookmark;
-
-    public Tag(String type, Bookmark bookmark) {
-        this.type = type;
-        this.bookmark = bookmark;
-    }
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="bookmark_id")
+    @JsonIgnoreProperties("tags")
+    public Bookmark bookmark;
 }
+

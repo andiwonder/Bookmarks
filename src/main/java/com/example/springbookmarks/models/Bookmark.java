@@ -1,9 +1,10 @@
 package com.example.springbookmarks.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+
 
 @Data
 @AllArgsConstructor @NoArgsConstructor @Getter @Setter
@@ -23,8 +24,9 @@ public class Bookmark {
     @Column(name = "URL")
     private String url;
 
-    @OneToMany(mappedBy = "tags")
-    public Set<Tag> tags = new HashSet<Tag>();
+    @OneToMany(mappedBy="bookmark")
+    @JsonIgnoreProperties("bookmark")
+    public List<Tag> tags;
 
     public Bookmark(String title, String description, String url) {
         this.title = title;

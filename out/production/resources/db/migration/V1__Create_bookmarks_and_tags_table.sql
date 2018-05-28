@@ -10,4 +10,3 @@ create table TAGS (
     type varchar(20) NOT NULL,
     bookmark_id integer REFERENCES bookmarks (id)
 );
-
