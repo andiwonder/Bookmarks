@@ -2,13 +2,13 @@ package com.example.springbookmarks.models;
 
 import lombok.*;
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
 @AllArgsConstructor @NoArgsConstructor @Getter @Setter
 @Entity @Table(name = "BOOKMARKS")
 public class Bookmark {
-    private Set<Tag> tags;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +24,7 @@ public class Bookmark {
     private String url;
 
     @OneToMany(mappedBy = "tags")
-    public Set<Tag> getTags() {
-        return tags;
-    }
+    public Set<Tag> tags = new HashSet<Tag>();
 
     public Bookmark(String title, String description, String url) {
         this.title = title;

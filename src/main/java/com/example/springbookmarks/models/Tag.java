@@ -7,7 +7,6 @@ import javax.persistence.*;
 @AllArgsConstructor @NoArgsConstructor @Getter @Setter
 @Entity @Table(name = "TAGS")
 public class Tag {
-    private Bookmark bookmark;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +17,7 @@ public class Tag {
 
     @ManyToOne
     @JoinColumn(name = "bookmark_id")
-    public Bookmark getBookmark() {
-        return bookmark;
-    }
+    private Bookmark bookmark;
 
     public Tag(String type, Bookmark bookmark) {
         this.type = type;
