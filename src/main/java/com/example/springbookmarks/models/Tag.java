@@ -16,7 +16,7 @@ public class Tag {
     @Column(name = "TYPE")
     private String type;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="bookmark_id")
     @JsonIgnoreProperties("tags")
     public Bookmark bookmark;

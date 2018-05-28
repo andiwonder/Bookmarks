@@ -24,7 +24,7 @@ public class Bookmark {
     @Column(name = "URL")
     private String url;
 
-    @OneToMany(mappedBy="bookmark")
+    @OneToMany(mappedBy="bookmark",  cascade = CascadeType.ALL)
     @JsonIgnoreProperties("bookmark")
     public List<Tag> tags;
 
