@@ -2,6 +2,8 @@ package com.example.springbookmarks.models;
 
 import lombok.*;
 import javax.persistence.*;
+import java.awt.print.Book;
+import java.util.List;
 
 @Data
 @AllArgsConstructor @NoArgsConstructor @Getter @Setter
@@ -20,6 +22,9 @@ public class Bookmark {
 
     @Column(name = "URL")
     private String url;
+
+    @OneToMany(mappedBy = "tag")
+    private List<Tag> books;
 
     public Bookmark(String title, String description, String url) {
         this.title = title;
