@@ -1,7 +1,7 @@
 create table BOOKMARKS (
     ID SERIAL PRIMARY KEY ,
     title varchar(80) NOT NULL,
-    description varchar(200) NOT NULL,
+    description varchar(200),
     url varchar(300)
 );
 

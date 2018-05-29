@@ -34,4 +34,12 @@ public class Bookmark {
         this.url = url;
     }
 
+    public Bookmark(String title, String url) {
+        this.title = title;
+        this.url = url;
+    }
+
+    public Bookmark(String title) {
+        this.title = title;
+    }
 }

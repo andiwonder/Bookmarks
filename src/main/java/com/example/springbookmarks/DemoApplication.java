@@ -12,6 +12,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class DemoApplication {
 
 	public static void main(String[] args) {
+		// cheated and put code in controller, idk
+		// HtmlParser.parseHtmlFromFile();
 		SpringApplication.run(DemoApplication.class, args);
 	}
 

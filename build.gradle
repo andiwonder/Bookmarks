@@ -33,4 +33,6 @@ dependencies {
 	compile ('org.springframework.boot:spring-boot-starter-data-jpa')
 	compileOnly ('org.projectlombok:lombok')
 	compile 'org.jsoup:jsoup:1.11.3'
+	compile("org.springframework.boot:spring-boot-starter-batch")
+
 }
