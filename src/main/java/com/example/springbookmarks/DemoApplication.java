@@ -14,6 +14,7 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		// cheated and put code in controller, idk
 		// HtmlParser.parseHtmlFromFile();
+		// HtmlParser.getHtmlNaitve();
 		SpringApplication.run(DemoApplication.class, args);
 	}
 

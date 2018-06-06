@@ -6,6 +6,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import com.example.springbookmarks.models.Bookmark;
@@ -20,10 +23,32 @@ public class BookmarksController{
     @Autowired
     private BookmarkRepository bookmarkRepository;
 
+
+
+
+
+//    @GetMapping("/bookmarks")
+//    Page<Bookmark> employeesPageable(Pageable pageable) {
+//        return bookmarkRepository.findAll(pageable);
+//    }
+//
     @GetMapping("/bookmarks")
-    public Iterable<Bookmark> findAllBookmarks() {
-        return bookmarkRepository.findAll();
+    Page<Bookmark> bookmarksPageable(@RequestParam(value="offset") Integer offset,
+                                     @RequestParam(value="limit") Integer limit) {
+        return bookmarkRepository.findAll(PageRequest.of(offset, limit));
     }
+
+//    @GetMapping("/bookmarks?offset=20&limit=20")
+//    public Page<Bookmark> findPaginatedBookmarks(@RequestParam(value="offset") Integer offset,
+//                                       @RequestParam(value="limit") Integer limit, Pageable pageable){
+//        return bookmarkRepository.findAll(pageable);
+//    }
+
+
+//    @GetMapping("/bookmarks")
+//    public Iterable<Bookmark> findAllBookmarks() {
+//        return bookmarkRepository.findAll();
+//    }
 
     @GetMapping("/loadBookmarks")
     public HttpStatus loadBookmarks() {
@@ -79,6 +104,8 @@ public class BookmarksController{
 
         return bookmarkRepository.save(bookmarkFromDb);
     }
+
+
 
 
 
